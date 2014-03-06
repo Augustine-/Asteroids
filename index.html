@@ -4,13 +4,17 @@
     <title>ASTEROIDS</title>
 </head>
 <body>
-    <canvas width="500" height="500"></canvas>
+    <canvas width="1000" height="1000"></canvas>
 
     <script src="moving_objects.js"></script>
 		<script src="asteroids.js"></script>
+		<script src="game.js"></script>
+		<script src="ship.js"></script>
+
     <script>
         var canvas = document.getElementsByTagName("canvas")[0];
-        new ASTEROIDS.Asteroid.prototype.randomAsteroid(100, 100).start(canvas);
+        var game = new ASTEROIDS.Game(canvas.getContext("2d"));
+				game.start(canvas);
     </script>
 </body>
 </html>

@@ -10,21 +10,20 @@
 	var Asteroid = root.ASTEROIDS.Asteroid =
 	function (pos, vel, radius, color) {
 		ASTEROIDS.MovingObject.call(this, pos, vel, radius, color);
-
-		COLOR = color;
-		RADIUS = radius;
 	}
 
 	Asteroid.inherits(ASTEROIDS.MovingObject);
 
 	Asteroid.MAX_RADIUS = 25;
 
-	var colors = ["cyan", "	Magenta", "Yellow", ]
+	var colors = ["cyan", "Magenta", "Yellow"]
 
 	var randomVec = function (dimX, dimY) {
-	  var dx = ((Math.random() * 2) - 1) * (dimX / 2);
-	  var dy = (Math.random() * 2) - 1 * (dimY / 2);
+		// console.log(dimX,dimY);
+	  var dx = (Math.random() - Math.random());
 
+	  var dy = (Math.random() - Math.random());
+		// console.log([dx, dy])
 		return [dx, dy];
 	}
 
@@ -34,7 +33,7 @@
 		return new Asteroid(
 		      [dimX * Math.random(),
 		      dimY * Math.random()],
-					randomVec(),
+					randomVec(dimX,dimY),
 		      Asteroid.MAX_RADIUS * Math.random(),
 					colors[Math.floor(Math.random() * 3)]
 		    );
