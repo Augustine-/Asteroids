@@ -13,7 +13,7 @@
 
 	MovingObject.prototype.move = function (vel) {
 		//something something math
-		this.pos= [this.pos[0]+vel[0],this.pos[1]+vel[1]]
+		this.pos = [this.pos[0] + vel[0], this.pos[1] + vel[1]];
 	};
 
 	MovingObject.prototype.draw = function (ctx) {
@@ -37,6 +37,8 @@
 		/* Compute the distance between the two centers (lookup the formula for
 			distance between two points). If the sum of the radii is greater than
 			this, the circles collide. */
+
+
 			collisionDistance = otherObject.radius + this.radius
 			distanceApart = Math.sqrt(
 				(Math.pow((this.pos[0] - otherObject.pos[0]),2) +
