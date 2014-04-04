@@ -5,8 +5,8 @@
 	var DIM_Y = 1000;
 	var FPS = 30;
 
-	var Game = root.ASTEROIDS.Game = function (ctx) {
-		this.ctx = ctx;
+	var Game = root.ASTEROIDS.Game = function (canvasContext) {
+		this.canvasContext = canvasContext;
 		this.asteroids = [];
 		this.ship = new ASTEROIDS.Ship([DIM_X/2,DIM_Y/2],[0,0], 12, "black");
 		//Should we update this to be the size of the game board?
@@ -19,11 +19,11 @@
 	}
 
 	Game.prototype.draw = function() {
-		this.ctx.clearRect(0,0,DIM_X,DIM_Y);
+		this.canvasContext.clearRect(0,0,DIM_X,DIM_Y);
 		for(i=0; i<this.asteroids.length; i++) {
-			this.asteroids[i].draw(this.ctx);
+			this.asteroids[i].draw(this.canvasContext);
 		}
-		this.ship.shipDraw(this.ctx);
+		this.ship.shipDraw(this.canvasContext);
 	}
 
 	Game.prototype.move = function() {

@@ -11,14 +11,14 @@
 
 	Ship.inherits(ASTEROIDS.MovingObject);
 
-	Ship.prototype.shipDraw = function(ctx) {
-		ctx.fillStyle = "black";
-		ctx.beginPath();
+	Ship.prototype.shipDraw = function(canvasContext) {
+		canvasContext.fillStyle = "black";
+		canvasContext.beginPath();
 
-		ctx.moveTo(this.x_c - 12.5, this.y_c + 17.5);
-		ctx.lineTo(this.x_c + 0, this.y_c - 17.5);
-		ctx.lineTo(this.x_c + 12.5, this.y_c + 17.5);
-		ctx.fill();
+		canvasContext.moveTo(this.x_c - 12.5, this.y_c + 17.5);
+		canvasContext.lineTo(this.x_c + 0, this.y_c - 17.5);
+		canvasContext.lineTo(this.x_c + 12.5, this.y_c + 17.5);
+		canvasContext.fill();
 	}
 
 	Ship.prototype.shipMove = function (vel) {
@@ -28,11 +28,3 @@
 	}
 
 })(this);
-
-// ctx.moveTo(75,60);
-// ctx.lineTo(87.5,25);
-// ctx.lineTo(100,60);
-//
-// ctx.moveTo(this.x_c + 0, this.y_c + 35);
-// ctx.lineTo(this.x_c + 12.5, this.y_c + 0);
-// ctx.lineTo(this.x_c + 25, this.y_c + 35);
