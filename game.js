@@ -9,6 +9,7 @@
 		this.canvasContext = canvasContext;
 		this.asteroids = [];
 		this.ship = new ASTEROIDS.Ship([DIM_X/2,DIM_Y/2],[0,0], 12, "black");
+		this.intervalId = 0
 		//Should we update this to be the size of the game board?
 	}
 
@@ -44,17 +45,21 @@
 	  var game = this;
 		this.addAsteroids(90);
 
-	  window.setInterval(function () {
+	  this.intervalId = window.setInterval(function () {
 	       game.step();
 	     }, Math.floor(1000 / FPS));
+	}
+
+	Game.prototype.stop = function () {
+		clearInterval(this.intervalId);
 	}
 
 	Game.prototype.checkCollisions = function () {
 		for(var i = 0; i < this.asteroids.length; i++) {
 			if (this.asteroids[i].isCollidedWith(this.ship)) {
-				alert("YOU LOSE");
-				clearInterval();
-				break;
+				console.log("collision detected!");
+				console.log("GAME OVER")
+				this.stop();
 			}
 		}
 	};

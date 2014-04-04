@@ -5,6 +5,7 @@
 	function (pos, vel, radius, color ) {
 		ASTEROIDS.MovingObject.call(this, pos, vel, radius, color);
 
+		this.vel = vel
 		this.x_c = pos[0];
 		this.y_c = pos[1];
 	}
@@ -22,9 +23,15 @@
 	}
 
 	Ship.prototype.shipMove = function (vel) {
+		// new position = old coords + velocity values
 		this.pos = [this.pos[0] + vel[0], this.pos[1] + vel[1]];
 		this.x_c = this.pos[0];
 		this.y_c = this.pos[1];
+	}
+
+	Ship.prototype.power = function (impulse) {
+		this.vel[0] += impulse[0];
+		this.vel[1] += impulse[1]; 
 	}
 
 })(this);
